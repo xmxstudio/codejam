@@ -1,0 +1,93 @@
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  font-family: 'Source Code Pro', monospace
+  font-weight: 400
+  color: #fff
+body
+  height: 100%
+  background: linear-gradient(40deg , #14148da6, #333)
+  padding: 10px 50px
+html
+  height: 100%
+header
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin-bottom: 30px
+  .title
+    font-size: 1.5rem
+    letter-spacing: -1px
+    padding: 10px 0
+  nav
+    display: flex
+    width: 50%
+    justify-content: center
+    align-items: center
+    // background: #FFA50022
+    // background: linear-gradient(0deg, #FFA50011,#FFA50033)
+    padding: 10px
+    border-radius: 8px
+
+
+    >div
+      margin: 0 10px
+      transition: all 0.3s
+a
+  text-decoration: none
+
+input,button,textarea
+  color: #333
+  padding: 3px
+#status
+  flex-grow: 1
+  text-align: right
+.selected
+  color: orange
+  // color: navy
+  // text-shadow: 0 0 3px #000, 1px 1px #000, 0px -1px 1px #fff
+#main
+  // margin: 0 10%
+  transition: all 0.3s
+  position: absolute
+  top: 120px
+  left: 10%
+  right: 10%
+  bottom: 10%
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  border-radius: 8px
+  // padding-bottom: 320px
+  background-color: rgba(255,255,255,0.3)
+  color: #333
+#taQuery
+  width: 80% !important
+  border: none 
+  border-radius: 5px
+form
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  // text-align: center
+  input,button
+    margin: 3px
+    border-radius: 5px
+    border: none
+@media (max-width: 500px)
+  body,html
+    min-width: 400px
+  body
+    padding: 10px 0    
+    font-size: 1.3rem
+  nav
+    >div
+      padding: 13px
+  #main
+    margin: 0
+    padding: 0 20px
