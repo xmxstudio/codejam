@@ -72,12 +72,22 @@ while (true) {
       // END IPC SHIT
 
     while (!feof($socket)) {
-        flog('connected');
+        //flog('connected');
         $response = fgets($socket);
         if (strpos($response, 'PING') === 0) {
             fwrite($socket, 'PONG ' . substr($response, 5) . "\r\n");
             echo "PING PONG";
         }
+        //flog($response);
+
+        $re = '/@(.+)\.tmi\.twitch\.tv JOIN #(.+)/m';
+        preg_match_all($re, $response, $matches, PREG_SET_ORDER, 0);
+        if(!empty($matches)){
+            $usr = $matches[0][1];
+            $chan = $matches[0][2];
+            $db->addJoin($usr,$chan);
+        }
+
 
         $username='';$message='';$channel='';
         $pattern = '/:.*?!(.*?)@.*? PRIVMSG #(.*?) :(.*)/';
@@ -89,10 +99,12 @@ while (true) {
             echo "Username: $username" . PHP_EOL;
             echo "Channel: $channel" . PHP_EOL;
             echo "Message: $message" . PHP_EOL;
+            $x = $db->addChat($username, $channel,$message,'{}');
+            flog('add chat result ' + $x);
             flog(username.': '.$message);
         } else {
             //echo $response . PHP_EOL;
-            flog(response);
+          //  flog(response);
         }
         // Rest of your code for processing the IRC response goes here
         if(strpos($message,'!x')!== false ){

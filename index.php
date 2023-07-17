@@ -61,9 +61,7 @@ switch ($uri){
     }
     flog('LAUNCHING IRC CONNECTION');
     exec("nohup php irc.php > /dev/null 2>&1 &", $output, $returnCode);
-    var_dump($output);
-    echo "Return code: $returnCode";
-    //header('Location: '.$_SESSION['lastURI']);
+    header('Location: '.$_SESSION['lastURI']);
     break;
   case '/disconnect':
     flog('TERMINATING IRC CONNECTION');
