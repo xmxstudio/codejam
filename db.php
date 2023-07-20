@@ -158,7 +158,7 @@ class Database {
 
 
 
-$server = 'localhost';
+$server = 'db';
 $username = 'root';
 $password = '@PASSword123';
 $database = 'Twitch';

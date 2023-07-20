@@ -8,7 +8,7 @@ function flog($what){
 function botPID(){
   $cmd = 'pidof php irc.php';
   exec($cmd, $output);
-  return $output[0];
+  return $output;
 }
 
 
