@@ -6,7 +6,7 @@ function flog($what){
 }
 
 function botPID(){
-  $cmd = 'pidof php irgitc.php';
+  $cmd = 'pidof php irc.php';
   exec($cmd, $output);
   return $output[0];
 }
